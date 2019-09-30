@@ -1,0 +1,114 @@
+\documentclass[12pt]{memoir}
+
+\usepackage{latexsym,amsmath,amsfonts,amssymb,amsthm}
+\usepackage{url}
+\usepackage[style=alphabetic,natbib=true,backend=bibtex,maxbibnames=99]{biblatex}
+\usepackage[colorlinks=true]{hyperref}
+\usepackage[nameinlink,capitalize,noabbrev]{cleveref}
+\usepackage{graphicx}
+\RequirePackage[T1]{fontenc}
+\RequirePackage[tt=false,type1=true]{libertine}
+\RequirePackage[varqu]{zi4}
+\RequirePackage[libertine]{newtxmath}
+\usepackage{microtype}
+\usepackage{cmutr}
+
+% Memoir adjustments
+
+\setlrmarginsandblock{1.25in}{*}{1}
+\setulmarginsandblock{1.5in}{*}{1}
+\setheaderspaces{*}{2\onelineskip}{*}
+\checkandfixthelayout
+
+% Check out the memoir manual for other chapter styles.
+\chapterstyle{default}
+
+\defbibheading{bibliography}[\bibname]{%
+  \chapter*{#1}%
+  \markboth{#1}{#1}%
+  \addcontentsline{toc}{chapter}{\bibname}}
+
+\setsecnumdepth{subsection}
+
+\newcommand{\draftstamp}{\textcolor{red}{(\number\month/\number\day/\the\year)}}
+
+\nouppercaseheads
+\makepagestyle{nonumbers}
+\createmark{chapter}{left}{nonumber}{}{}
+\createmark{section}{right}{nonumber}{}{}
+\makeevenhead{nonumbers}{\thepage\qquad{\itshape\leftmark}}{\draftstamp}{}
+\makeoddhead{nonumbers}{}{\draftstamp}{{\itshape\rightmark}\qquad\thepage}
+
+\addbibresource{bibliography.bib}
+
+\begin{document}
+
+\frontmatter
+
+\pagestyle{empty}
+
+\title{\textbf{Title}}
+\author{Author}
+\date{\draftstamp}
+\Year{20XX}
+\trnumber{CMU-CS-TODO}
+
+\committee{
+Sleve McDichael, Chair \\
+Dwigt Rortugal \\
+Bobson Dugnutt \\
+Todd Bonzalez, Fighting Baseball University
+}
+
+\support{Research credit statement.}
+
+\keywords{Topic, Another Topic}
+
+\maketitle
+
+\pagestyle{nonumbers}
+
+\begin{abstract}
+Abstract.
+\end{abstract}
+
+\chapter{Acknowledgements}
+
+Text.
+
+\cleardoublepage
+\tableofcontents
+
+\mainmatter
+
+\chapter{Introduction}
+
+Text.
+
+\section{Section name}
+
+Text \citep{HoTT13}.
+
+\clearpage
+
+Sample left page.
+
+\clearpage
+
+Sample right page.
+
+\chapter{Stuff}
+
+Stuff.
+
+\appendix
+
+\chapter{More stuff}
+
+foo
+
+\backmatter
+
+\printbibliography
+
+\end{document}
